@@ -1,0 +1,1 @@
+cp -r ../multisig-copy/code.json ./src
