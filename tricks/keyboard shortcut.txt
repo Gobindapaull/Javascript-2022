@@ -1,3 +1,5 @@
 1)ctrl + tab = change google chrome tab
 
 2)ctrl + enter = go to the vs code next line
+
+3)alt + tab  = change youtube/google to vs code
