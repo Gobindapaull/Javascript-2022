@@ -1,0 +1,21 @@
+# node -v or node --version
+# npm -v or npm --version
+# node index.js
+# clear
+
+# pwd
+# ls
+
+# node --watch index.js
+
+# touch index.txt
+# nano index.txt > ctrl + s > ctrl + x
+# cat index.txt
+
+# rm -r a.txt b.txt c.js d.css
+
+# 3 places to test code
+ 1.vs code
+ 2.online code editor
+ 3.chrome browser
+
