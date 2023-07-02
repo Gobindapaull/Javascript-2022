@@ -1,0 +1,7 @@
+1) VS CODE
+sudo dpkg -i file
+
+2) TEAMVIEWER
+sudo dpkg -i file
+
+3)
