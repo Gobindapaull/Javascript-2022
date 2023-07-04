@@ -4,4 +4,6 @@ sudo dpkg -i file
 2) TEAMVIEWER
 sudo dpkg -i file
 
-3)
+3) sudo snap remove ngrok
+
+4) 
