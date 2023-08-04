@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        #div {
+    width: 300px;
+    height: 40px;
+    font-size: 30px;
+    background-color: Black;
+    text-align: center;
+    color: white;
+    align-items: center;
+    margin: auto;
+}
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div">Div</div>
+
+    <script src="index.js"></script>
+    <script>
+      let target = document.querySelector("#div");
+      window.addEventListener("offline", () => {
+        target.innerHTML = "you are offline";
+        target.style.backgroundColor = "Red";
+      });
+      window.addEventListener("online", () => {
+        target.innerHTML = "you are online";
+        target.style.backgroundColor = "Green";
+      });
+
+      console.log(navigator.onLine);
+    </script>
+  </body>
+</html>
