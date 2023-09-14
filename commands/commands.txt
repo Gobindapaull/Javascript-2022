@@ -1,0 +1,2 @@
+remove folder
+= rm -rf foldername
