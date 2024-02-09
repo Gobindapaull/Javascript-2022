@@ -1,0 +1,16 @@
+Backend Apps :
+    Web applications on web servers
+
+Frontend Apps:
+    Dynamic effects and web applications on web browser
+
+Native Mobile Applications:
+    React Native
+
+Native Desktop Applictions:
+    Electron
+
+
+
+ES6 = ES2015
+ES = ECMAScript
