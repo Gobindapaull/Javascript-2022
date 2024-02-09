@@ -20,8 +20,10 @@ Bun is an all-in-one JavaScript runtime & toolkit designed for speed, complete w
 
 Tools 
 
-1)VS Code
-2)Node js
+
+1) VS Code
+
+2) Node js
 
 some essential website
 1) https://www.npmjs.com/
