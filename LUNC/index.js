@@ -1,8 +1,9 @@
 import { LCDClient, MnemonicKey } from '@terra-money/terra.js';
 
 const terra = new LCDClient({
-    URL: 'https://terra-classic-rpc.publicnode.com:443',
-    chainID: 'columbus-5'
+    URL: 'https://columbus-lcd.terra.dev',
+    chainID: 'columbus-5',
+    isClassic: true
 });
 
 const mk = new MnemonicKey({
