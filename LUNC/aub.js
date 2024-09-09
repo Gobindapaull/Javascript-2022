@@ -1,5 +1,4 @@
 const { LCDClient, MnemonicKey, MsgSend, SigningStargateClient } = require('@terra-money/terra.js');
-const { Network, SigningStargateClient: StargateClient } = require('@cosmjs/stargate');
 
 const MNEMONIC = '';
 const SENDER_ADDRESS = 'terra162vpv32hkyj2p2fr0y6y4rnsy3uyqqnh9pxhz9';
