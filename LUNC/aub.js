@@ -34,6 +34,9 @@ async function withdraw() {
         const feeLog = fee.toData().amount[0].amount;
         console.log(`tax: ${feeLog/1e6} LUNC`)
 
+        const LuncBalance = await terra.bank.balance(SENDER_ADDRESS);
+        console.log(LuncBalance[0].toIntCoins().toAmino()[0].amount);
+
         // Create a transaction
         const tx = await wallet.createAndSignTx({
             msgs: [msg],
