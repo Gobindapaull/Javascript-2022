@@ -31,6 +31,9 @@ async function withdraw() {
         // const fee = new StdFee(200000, { uluna: 5000 });
         const fee = new Fee(2000000, new Coins({ uluna: 126053740  }));
 
+        const feeLog = fee.toData().amount[0].amount;
+        console.log(`tax: ${feeLog/1e6} LUNC`)
+
         // Create a transaction
         const tx = await wallet.createAndSignTx({
             msgs: [msg],
