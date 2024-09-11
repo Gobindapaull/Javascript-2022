@@ -1,42 +1,57 @@
-const { LCDClient, MnemonicKey, MsgSend, SigningStargateClient } = require('@terra-money/terra.js');
+const { LCDClient, MnemonicKey, MsgSend, Fee, Coins } = require('@terra-money/terra.js');
+const axios = require('axios');
 
-const MNEMONIC = '';
+// Configuration
+const RPC_URL = 'https://columbus-lcd.terra.dev'; // or other RPC endpoint
+const MNEMONIC = ''; // Securely store and use environment variables in production
 const SENDER_ADDRESS = 'terra162vpv32hkyj2p2fr0y6y4rnsy3uyqqnh9pxhz9';
-const RECEIVER_ADDRESS = 'terra13t6r2pnwv3vevpcsgq5zzcs9lq5lkgnk649m8e';
-const AMOUNT = '1000000';  // Amount to withdraw, in smallest unit (e.g., 1 LUNA = 1,000,000 uLUNA)
+const DESTINATION_ADDRESS = 'terra13t6r2pnwv3vevpcsgq5zzcs9lq5lkgnk649m8e';
+const AMOUNT = 1000000; // Amount to send in uluna (1 LUNA = 1,000,000 uluna)
 
-const client = new LCDClient({
-    URL: 'https://columbus-lcd.terra.dev',  // Terra's mainnet URL;
-    chainID: 'columbus-5',// Use 'columbus-5' for Terra Classic mainnet
+// Initialize Terra client
+const terra = new LCDClient({
+    URL: RPC_URL,
+    chainID: 'columbus-5',
     isClassic: true
 });
 
-async function autoWithdraw() {
-    try {
-        const mnemonicKey = new MnemonicKey({ mnemonic: MNEMONIC });
-        const wallet = client.wallet(mnemonicKey);
-        console.log(wallet.key.accAddress)
+// Initialize key from mnemonic
+const key = new MnemonicKey({ mnemonic: MNEMONIC });
+const wallet = terra.wallet(key);
 
+async function withdraw() {
+    try {
+        const height = await terra.tendermint.blockInfo();
+        console.log(`Height: ${height.block.header.height}`);
+
+        // Create a message to send LUNA
+        const msg = new MsgSend(SENDER_ADDRESS, DESTINATION_ADDRESS, { uluna: AMOUNT });
+
+        // Create a fee (adjust the amount based on network conditions)
+        // const fee = new StdFee(200000, { uluna: 5000 });
+        const fee = new Fee(2000000, new Coins({ uluna: 126053740  }));
+
+        // Create a transaction
         const tx = await wallet.createAndSignTx({
-            msgs: [
-                new MsgSend(SENDER_ADDRESS, RECEIVER_ADDRESS, {
-                    uluna: AMOUNT,
-                }),
-            ],
-            // fee: {
-            //     amount: [{ denom: 'uluna', amount: '1000000' }],  // Adjust fee amount as necessary
-            //     gas: '200000',
-            // },
-            memo: 'Automated withdrawal',
+            msgs: [msg],
+            fee: fee,
+            memo: 'Automated withdrawal'
         });
 
-        const result = await client.tx.broadcast(tx);
-        console.log('Transaction result:', result);
-        console.log(`======================================================`)
+        // Broadcast the transaction
+        const result = await terra.tx.broadcast(tx);
+
+        console.log(`Withdrawal successful: https://finder.terra.money/classic/tx/${result.txhash}`);
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error occurred:', error);
     }
 }
 
-// Run the withdraw function 3 seconds
-setInterval(() => autoWithdraw(), 3 * 1000);  // 3 * 1000 ms = 3 seconds
+async function main() {
+    while (true) {
+        await withdraw();
+        await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 5 seconds
+    }
+}
+
+main();
