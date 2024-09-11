@@ -1,5 +1,4 @@
 const { LCDClient, MnemonicKey, MsgSend, Fee, Coins } = require('@terra-money/terra.js');
-const axios = require('axios');
 
 // Configuration
 const RPC_URL = 'https://columbus-lcd.terra.dev'; // or other RPC endpoint
