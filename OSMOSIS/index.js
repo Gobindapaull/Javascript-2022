@@ -29,7 +29,7 @@ const withdraw = async () => {
         // console.log(await client.getBalance("osmo1vqy8rqqlydj9wkcyvct9zxl3hc4eqgu3d7hd9k", "uatom"));
         // console.log(await client.getAllBalances("osmo1vqy8rqqlydj9wkcyvct9zxl3hc4eqgu3d7hd9k"));
 
-        const amount = [{ denom: 'uosmo', amount: withdrawalAmount }];
+        const amount = [{ denom: 'uatom', amount: withdrawalAmount }];
 
         const fee = {
             amount: [{ denom: 'uosmo', amount: '5000' }],
