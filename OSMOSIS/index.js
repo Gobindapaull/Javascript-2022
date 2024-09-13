@@ -11,7 +11,6 @@ const withdrawalAmount = 1000000; // (1 ATOM = 1,000,000 uatom)
 
 const withdraw = async () => {
 
-    // const key = "0xa3c4fae871d1d51cffab4a1109b086517f220eadab5e863f7d833713fc169e68";
     const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic);
     const account = await wallet.getAccounts();
     const accountAddress = account[0].address;
