@@ -75,3 +75,5 @@ bot.launch().then(() => {
 //     "ethers": "^6.13.3",
 //     "telegraf": "^4.16.3"
 //   }
+
+// https://testnet.bscscan.com/tx/0x471bd6f91cd43b72f063f3864a391cbe3f25f8608748de12faa05d64d29d5876
