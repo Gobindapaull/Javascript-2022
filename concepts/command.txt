@@ -13,6 +13,7 @@
 # cat index.txt
 
 # rm -r a.txt b.txt c.js d.css
+# rm -rf .next
 
 # 3 places to test code
  1.vs code
