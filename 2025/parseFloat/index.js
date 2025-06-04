@@ -1,5 +1,6 @@
 
 const min = parseFloat(0.054);
+console.log(typeof min); // number
 const max = parseFloat(0.056);
 
 const result = max - min;
