@@ -2,3 +2,10 @@
 - Text to Text = GPT-4, GPT-3.5
 - Text to Image = DALL-E
 - https://platform.openai.com/tokenizer
+
+- npm init -y
+- npm install dotenv @openai/agents openai
+- npm i -D typescript @types/node ts-node
+- tsc --init
+- edit tsconfig.json file
+- npm run dev
