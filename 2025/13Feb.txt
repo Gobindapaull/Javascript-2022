@@ -1,9 +1,0 @@
-node -v
-npm -v
-git-scam.com
-npm install -g hardhat
-npx hardhat init
-npx hardhat compile
-npx hardhat node
-code .
-deepseek AI
