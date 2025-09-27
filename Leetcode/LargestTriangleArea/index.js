@@ -28,3 +28,5 @@ var largestTriangleArea = function (points) {
 
         return maxArea;
 };
+
+// https://leetcode.com/problems/largest-triangle-area/
