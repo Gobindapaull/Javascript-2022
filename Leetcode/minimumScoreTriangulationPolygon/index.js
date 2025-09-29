@@ -19,3 +19,5 @@ var minScoreTriangulation = function(values) {
    }
    return dp[0][n - 1];
 };
+
+// https://leetcode.com/problems/minimum-score-triangulation-of-polygon/
