@@ -1,8 +1,6 @@
-console.log('wait for 5 seconds...')
-
-function Wait() {
-    console.log('withdraw successful :)')
-    console.log('https://bscscan.com/address/0x0000000000000000000000000000000000000000')
+function wait() {
+    console.log('Wait 3 seconds then stop')
 }
 
-setTimeout(Wait, 5000)
+setTimeout(wait, 3000)
+
