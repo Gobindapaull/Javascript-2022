@@ -28,12 +28,19 @@
     private_key: wallet.privateKey,
     balance: 0
 }]).select();
-- data
+- console.log(`DATA: ${JSON.stringify(data, null, 2)}`);
 - error
 
 ** get Wallet
 - import supabase
 - const {data, error} = await supabase.from("wallets).select("*");
-- data
+- console.log(`DATA: ${JSON.stringify(data, null, 2)}`);
+- error
+
+- ** update Wallet
+- import supabase
+- const wallet = "0xCcE092c904928c120669DD1ba1b3A91d2DF30654";
+- const {data, error} = await supabase.from("wallets").update({ "balance": 999 }).eq("wallet", wallet).select();
+- console.log(`DATA: ${JSON.stringify(data, null, 2)}`);
 - error
 
