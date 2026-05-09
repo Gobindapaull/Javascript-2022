@@ -3,22 +3,26 @@ const supabase = require("./db");
 
 async function main() {
     const wallet = ethers.Wallet.createRandom();
-    console.log(`wallet address: ${wallet.address}`);
+    console.log(`wallet : ${wallet.address}`);
 
+    const provider = new ethers.JsonRpcProvider("https://rpc.flashbots.net");
 
-    const { data, error } = await supabase
-        .from("wallets")
-        .insert([
-            {
-                wallet: wallet.address,
-                private_key: wallet.privateKey,
-                balance: 0
-            }
-        ])
-        .select();
+    const bal = await provider.getBalance(wallet.address);
+    const balance = ethers.formatEther(bal);
 
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
+    const {data, error} = await supabase.from("wallets").insert([
+        {
+            wallet: wallet.address,
+            private_key: wallet.privateKey,
+            balance: balance
+        }
+    ]).select();
+
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(`DATA: ${JSON.stringify(data, null, 2)}`);
+    }
 }
 
 main();
