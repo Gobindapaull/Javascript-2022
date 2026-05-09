@@ -44,3 +44,10 @@
 - console.log(`DATA: ${JSON.stringify(data, null, 2)}`);
 - error
 
+- - ** delete Wallet
+- import supabase
+- const wallet = "0xCcE092c904928c120669DD1ba1b3A91d2DF30654";
+- const {data, error} = await supabase.from("wallets").delete().eq("wallet", wallet).select();
+- console.log(`DATA: ${JSON.stringify(data, null, 2)}`);
+- error
+
