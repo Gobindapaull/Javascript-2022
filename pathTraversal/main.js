@@ -15,3 +15,4 @@ app.listen(3000, () => {
 
 // http://localhost:3000/download?file=note.txt
 // http://localhost:3000/download?file=../secret.txt
+// http://localhost:3000/download?file=../main.js
